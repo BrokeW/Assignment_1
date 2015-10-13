@@ -13,7 +13,9 @@ divisible.by <- function (x,y) (
 #characters x, y, and z, which will return a list that all numbers between
 #x and y (inclusive) that are divisible by z
 divisible.within.range <- function (x,y,z) {
+#first define the upper boudary a
   a <- (y%/%z) * z
+#the lower boundary depends on the reletive relationship between x and z
   if (z >= x) {
     return(seq(z,a,by=z))
    }
