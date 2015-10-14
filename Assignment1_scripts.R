@@ -14,14 +14,20 @@ divisible.by <- function (x,y) (
 #x and y (inclusive) that are divisible by z
 divisible.within.range <- function (x,y,z) {
 #first assign the upper boudary a
-  a <- (y%/%z) * z
+  a <- ((x%/%z)+1) * z
+  b <- (y%/%z) * z
 #the lower boundary depends on the reletive relationship between x and z
   if (z >= x) {
-    return(seq(z,a,by=z))
+    return(seq(z,b,by=z))
    }
   else {
-    return(seq(x,a,by=z))
+    if (x%%z==0) {
+      return(seq(x,b,by=z))
     }
+    else {
+      return(seq(a,b,by=z))
+    }
+  }
 }
 
 #taking the commandline arguments as input
